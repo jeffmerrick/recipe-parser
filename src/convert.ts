@@ -101,6 +101,11 @@ export function findQuantityAndConvertIfUnicode(ingredientLine: string) {
 }
 
 function keepDecimals(val: number) {
-  const strVal = val.toString();
-  return strVal.split(".")[0] + "." + strVal.split(".")[1].substring(0, 8);
+  var strVal = val.toString();
+  var strArr = strVal.split(".");
+  if (strArr.length > 1) {
+    return strArr[0] + "." + strArr[1].substring(0, 8);
+  } else {
+    return strVal;
+  }
 }
